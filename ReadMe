@@ -1,0 +1,30 @@
+------------------------------------------------------------
+Requirements:
+c++ 11
+On Debian run: sudo apt-get install build-essential
+
+libboost
+On Debian run: sudo apt-get install libboost-all-dev
+
+libserial version 0.6.0rc2 or newer
+http://libserial.sourceforge.net/
+On Debian run: sudo apt-get install libserial-dev
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+Build and install:
+ make
+ sudo make install
+------------------------------------------------------------
+
+------------------------------------------------------------
+Run:
+edit /etc/OBScan.conf to reflect your ELM327 Chip settings
+OBScan
+
+Note: user needs to be in the dialout group or OBScan needs 
+to be run as root in order to access a tty device
+
+To write data to a csv file run: OBScan > ScanOut.csv
+------------------------------------------------------------
