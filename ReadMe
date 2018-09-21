@@ -1,3 +1,10 @@
+
+OBScan is a PID scan utility that is compatible with any 
+OBDII scan tool based on the ELM327 IC. This utility scans 
+all PID’s on a vehicles ECM to allow the user to locate non 
+documented PID’s.
+
+
 ------------------------------------------------------------
 Requirements:
 c++ 11
