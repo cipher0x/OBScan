@@ -434,6 +434,7 @@ int PIDMode1::start(PID* const PIDIn)
 
     //save PID String
     rawPidValue = tmp;
+    rawPidValue = rawPidValue.erase(rawPidValue.size()-1);
 
     //process PID Value
     PIDProcessor();
