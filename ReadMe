@@ -1,3 +1,9 @@
+OBScan is a PID scan utility that is compatible with any
+OBDII scan tool based on the ELM327 IC. This utility scans
+all PID’s on a vehicles ECM to allow the user to locate non
+documented PID’s.
+
+
 ------------------------------------------------------------
 Requirements:
 c++ 11
@@ -23,7 +29,7 @@ Run:
 edit /etc/OBScan.conf to reflect your ELM327 Chip settings
 OBScan
 
-Note: user needs to be in the dialout group or OBScan needs 
+Note: user needs to be in the dialout group or OBScan needs
 to be run as root in order to access a tty device
 
 To write data to a csv file run: OBScan > ScanOut.csv
