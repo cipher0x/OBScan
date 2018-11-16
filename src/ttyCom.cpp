@@ -8,7 +8,7 @@ ttyCom::ttyCom()
 
 
 
-ttyCom::ttyCom(cfgproc ttyConfig)
+ttyCom::ttyCom(cfgproc &ttyConfig)
 {
     //loads configureation into serail steram object from ttyConfig object
     loadConfig(ttyConfig);
@@ -23,7 +23,7 @@ ttyCom::~ttyCom()
 
 
 
-void ttyCom::loadConfig(cfgproc ttyConfig)
+void ttyCom::loadConfig(cfgproc &ttyConfig)
 {
     //loads configureation into serail steram object from ttyConfig object
     parseConfig(ttyConfig);
@@ -34,7 +34,7 @@ void ttyCom::loadConfig(cfgproc ttyConfig)
 /*
  * Write string to tty
  */
-int ttyCom::write(string out)
+int ttyCom::write(string &out)
 {
     serial_stream.unsetf( std::ios_base::skipws );
     serial_stream << out;

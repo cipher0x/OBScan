@@ -15,10 +15,10 @@ class ttyCom
 {
 public:
     ttyCom();
-    ttyCom(cfgproc ttyConfig);
-    void loadConfig(cfgproc ttyConfig);
+    explicit ttyCom(cfgproc &ttyConfig);
+    void loadConfig(cfgproc &ttyConfig);
     ~ttyCom();
-    int write(string out);
+    int write(string &out);
     string read();
     
     

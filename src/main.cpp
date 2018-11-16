@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     uint8_t byte = 0;
     uint8_t bit = 0;
 
+
 //*********PIDs 0>32***********************************************************
     for(int i = 0; i <= 0x60; i++)
     {
@@ -44,7 +45,7 @@ int main(int argc, char *argv[])
 
 
 
-        if(i >=0 & i <= 0x20)//first 32 PID report
+        if((i >=0) && (i <= 0x20))//first 32 PID report
         {
 
           if(i==0)//gets first reported PIDs 0x01 to 0x20
@@ -90,7 +91,7 @@ int main(int argc, char *argv[])
             line<<std::hex<<(int)bit<<",";
           }
 
-          if(!bit & (ReadPID.getRawPidVaule() != "NO DATA"))//if reporting no data when data is available
+          if((!bit) && (ReadPID.getRawPidVaule() != "NO DATA"))//if reporting no data when data is available
           {
             line <<"Not Reported";
           }
@@ -103,7 +104,7 @@ int main(int argc, char *argv[])
 
 
 
-        if(i >=0x20 & i <= 0x40)//second 32 PID report
+        if((i >=0x20) && (i <= 0x40))//second 32 PID report
         {
 
           if(i==0x20)//gets first reported PIDs 0x01 to 0x20
@@ -151,7 +152,7 @@ int main(int argc, char *argv[])
 
           if(i!= 0x20)
           {
-            if(!bit & (ReadPID.getRawPidVaule() != "NO DATA"))//if reporting no data when data is available
+            if((!bit) && (ReadPID.getRawPidVaule() != "NO DATA"))//if reporting no data when data is available
             {
               line <<"Not Reported";
             }
@@ -169,7 +170,7 @@ int main(int argc, char *argv[])
 
 
 
-        if(i >=0x40 & i <= 0x60)//third 32 PID report
+        if((i >=0x40) && (i <= 0x60))//third 32 PID report
         {
 
           if(i==0x40)//gets first reported PIDs
@@ -217,7 +218,7 @@ int main(int argc, char *argv[])
 
           if(i!= 0x40)
           {
-            if(!bit & (ReadPID.getRawPidVaule() != "NO DATA"))//if reporting no data when data is available
+            if((!bit) && (ReadPID.getRawPidVaule() != "NO DATA"))//if reporting no data when data is available
             {
               line <<"Not Reported";
             }

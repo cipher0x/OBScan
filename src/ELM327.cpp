@@ -8,7 +8,7 @@ ELM327::ELM327()
 
 
 
-ELM327::ELM327(cfgproc cfg)
+ELM327::ELM327(cfgproc &cfg)
 {
     elmConnect(cfg);
 }
@@ -22,7 +22,7 @@ ELM327::~ELM327()
 
 
 
-void ELM327::elmConnect(cfgproc cfg)
+void ELM327::elmConnect(cfgproc &cfg)
 {
     parseConfig(cfg);
     init(cfg);
@@ -86,7 +86,7 @@ int ELM327::connectECM()
  */
 string ELM327::ELMReadLine()
 {
-    string rt = "";
+    string rt;
     rt = tty.read();
     return rt;
 }

@@ -302,7 +302,7 @@ string PID::intToDecStr(int in )
  * Converts a Hex string into type int
  *
  */
-int PID::HexStrToInt(string in)
+int PID::HexStrToInt(string &in)
 {
     stringstream stream;
     int rt;

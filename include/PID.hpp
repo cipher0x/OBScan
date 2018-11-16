@@ -65,7 +65,7 @@ private:
      */
     string intByteToHexstr(int in);
     string intToDecStr(int in );
-    int HexStrToInt(string in);
+    int HexStrToInt(string &in);
     string doubleToStr(double in);
 };
 
@@ -74,6 +74,7 @@ class PIDMode1
 {
     friend class PID;
 public:
+    
     int start(PID* const PIDIn);
 
 private:

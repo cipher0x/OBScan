@@ -15,7 +15,7 @@ class ELM327OBD
 {
 public:
     ELM327OBD();
-    ELM327OBD(ELM327 &elmin);
+    explicit ELM327OBD(ELM327 &elmin);
     ~ELM327OBD();
     int setELM327(ELM327 &elmin);
     int setMode(int mode);

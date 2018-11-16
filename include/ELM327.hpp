@@ -9,8 +9,8 @@ class ELM327
 {
 public:
     ELM327();
-    ELM327(cfgproc cfg);
-    void elmConnect(cfgproc cfg);
+    explicit ELM327(cfgproc &cfg);
+    void elmConnect(cfgproc &cfg);
     ~ELM327();
     int connectECM();
     string getELMVersion(){return ELMVersion;}
