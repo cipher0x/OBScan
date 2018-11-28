@@ -61,6 +61,7 @@ PID ELM327OBD::getPID(int pid)
 {
     PID rtPID(GlobalMode, pid,elm);
     rtPID.run();
+    cout<<"c"<<endl;
     return rtPID;
 
 }//getPID()

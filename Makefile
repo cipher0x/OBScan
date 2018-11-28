@@ -8,7 +8,7 @@ TARGET := bin/OBScan
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS := -g -std=c++11# -Wall
+CFLAGS := -l /lib64 -g -std=c++11# -Wall
 LIB := -lserial -pthread
 INC := -I include
 

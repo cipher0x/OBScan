@@ -103,6 +103,7 @@ int PID::run()
       switch(Mode)
     {
         case 1:
+
             if(PID1 != NULL) delete PID1; //dealocate memeory if needed
             PID1 = new PIDMode1();
             PID1->start(this);
@@ -154,14 +155,14 @@ string PID::getPID()
  */
 string PID::getPidDescription()
 {
+    //check for error condition
+    if(!NoError)
+    {
+        return nullptr;
+    }//if error
+
     switch(Mode)
     {
-        //check for error condition
-        if(!NoError)
-        {
-            return nullptr;
-        }//if error
-
         case 1:
             return PID1->pidDescription;
             break;
@@ -409,7 +410,7 @@ int PIDMode1::start(PID* const PIDIn)
     }
 
     //for test
-    //cout <<"OUT: "<< cmd<<endl;//testing*******************************************************************************************
+    cout <<"OUT: "<< cmd<<endl;//testing*******************************************************************************************
 
     //writes command to OBDII BUS
     if(PIDObj->elm != nullptr)
@@ -417,13 +418,13 @@ int PIDMode1::start(PID* const PIDIn)
         cmd+="\r\n";//sends command
 
         PIDObj->elm->ELMWriteLine(cmd);
-        tmp = PIDObj->elm->ELMReadLine();//read echo
-        //cout <<"IN: "<<tmp<<endl;
+        tmp = PIDObj->elm->ELMReadLine();//read echo **not reading anything back ERROR*******************
+        cout <<"IN: "<<tmp<<endl;
         tmp = PIDObj->elm->ELMReadLine();//read data
-        //cout <<"IN: "<<tmp<<endl;
+        cout <<"IN: "<<tmp<<endl;
 
         PIDObj->elm->ELMReadLine();//clear stream
-        //cout <<"IN: "<<tmp<<endl;
+        cout <<"IN: "<<tmp<<endl;
 
     }
     else

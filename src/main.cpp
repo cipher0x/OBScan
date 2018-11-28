@@ -37,6 +37,13 @@ int main(int argc, char *argv[])
     uint8_t bit = 0;
 
 
+for(int i=0; i!= 0xFF; i++)
+{
+  cout<<"For: "<<i<<endl;
+  ReadPID = elmobd.getPID(i);
+  cout<<elmobd.getPID(i).getRawPidVaule()<<endl;
+}
+/*
 //*********PIDs 0>32***********************************************************
     for(int i = 0; i <= 0x60; i++)
     {
@@ -241,7 +248,7 @@ int main(int argc, char *argv[])
     line.clear();
 
     }//for
-
+*/
 
     return 0;
 }//main

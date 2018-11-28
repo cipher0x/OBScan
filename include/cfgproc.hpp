@@ -1,4 +1,4 @@
- 
+
 #ifndef CFGPROC_H
 #define CFGPROC_H
 
@@ -22,8 +22,8 @@ public:
     cfgproc();
     ~cfgproc();
     int reloadCFG();
-    
-    
+
+
 private:
     string DEVICE;
     string DEVICE_TYPE;
@@ -34,7 +34,7 @@ private:
     string ERROR_CORRECT;
     string PROTOCOL;
     int loadCFG();
-    
+
 };
 
 #endif

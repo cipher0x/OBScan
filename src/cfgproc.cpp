@@ -14,7 +14,7 @@ cfgproc::~cfgproc()
 int cfgproc::loadCFG()
 {
     string tmp;
-    ifstream cfgFile;
+    std::ifstream cfgFile;
     cfgFile.open ("/etc/OBScan.conf");
 
     //read file while open and not at end

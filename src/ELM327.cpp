@@ -28,9 +28,9 @@ void ELM327::elmConnect(cfgproc &cfg)
     init(cfg);
 }
 
-    
 
-    
+
+
 int ELM327::init(cfgproc cfg)
 {
     tty.loadConfig(cfg);
@@ -44,32 +44,32 @@ int ELM327::init(cfgproc cfg)
 int ELM327::connectECM()
 {
     string ELMIN = "";
-    
+
     ELMWriteLine("ATZ"+CRLF);//reset ELM state
-    
+
     //clear new new lines and reads in return value
     ELMIN = ELMReadLine();//read echo
     ELMIN = ELMReadLine();//read new line
     ELMIN = ELMReadLine();//read new line
     ELMIN = ELMReadLine();//read ELM version
-    
+
     //save ELM327 chip version
     ELMVersion = ELMIN;
-    
+
     //check for valid state
     //if not in valid state return 0
     if(!(ELMVersion.find("ELM") != string::npos))
     {
         return 0;
     }//if not in valided state
-    
+
     ELMWriteLine("ATSP"+ PROTOCOL+CRLF);
     ELMIN = ELMReadLine();//read echo chars
     ELMIN = ELMReadLine();//read new line
     ELMIN = ELMReadLine();//read commands error value
-    
-    
-    
+
+
+
     //if not in valid state return 0
     if(!(ELMIN.find("OK") != string::npos))
     {
@@ -82,12 +82,13 @@ int ELM327::connectECM()
 
 /*
  * Read Line from ELM327 Device
- * 
+ *
  */
 string ELM327::ELMReadLine()
 {
     string rt;
     rt = tty.read();
+    cout<<"GREEN"<<endl;
     return rt;
 }
 
@@ -95,7 +96,7 @@ string ELM327::ELMReadLine()
 
 /*
  * Write Line to ELM327 Device
- * 
+ *
  */
 void ELM327::ELMWriteLine(string strIn)
 {
@@ -114,8 +115,8 @@ int ELM327::parseConfig(cfgproc cfg)
     {
          std::cerr << "[" << __FILE__ << ":" << __LINE__ << "] "
                   << "Error: Invalid protocol in config file: "<<stoi(cfg.getProtocol())
-                  << std::endl; 
-                  
+                  << std::endl;
+
                   exit(1);
     }//else
 }
