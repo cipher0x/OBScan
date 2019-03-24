@@ -418,13 +418,18 @@ int PIDMode1::start(PID* const PIDIn)
         cmd+="\r\n";//sends command
 
         PIDObj->elm->ELMWriteLine(cmd);
+        //sleep(5);
         tmp = PIDObj->elm->ELMReadLine();//read echo **not reading anything back ERROR*******************
+        cout <<"IN: "<<tmp<<endl;
+        tmp = PIDObj->elm->ELMReadLine();//read /r
+        cout <<"IN: "<<tmp<<endl;
+        tmp = PIDObj->elm->ELMReadLine();//read data
         cout <<"IN: "<<tmp<<endl;
         tmp = PIDObj->elm->ELMReadLine();//read data
         cout <<"IN: "<<tmp<<endl;
 
-        PIDObj->elm->ELMReadLine();//clear stream
-        cout <<"IN: "<<tmp<<endl;
+        //PIDObj->elm->ELMReadLine();//clear stream
+        //cout <<"IN: "<<tmp<<endl;
 
     }
     else
