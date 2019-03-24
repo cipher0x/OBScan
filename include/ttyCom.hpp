@@ -4,13 +4,14 @@
 #include "cfgproc.hpp"
 #include <iostream>
 #include <string>
-#include <thread> 
-#include <SerialStream.h>
-#include <SerialPort.h>
+#include <thread>
+#include <unistd.h>
+#include <libserial/SerialPort.h>
 
 using namespace std;
 using namespace LibSerial ;
 
+#define PORT_END_OF_LINE '\r'
 class ttyCom
 {
 public:
@@ -20,11 +21,11 @@ public:
     ~ttyCom();
     int write(string &out);
     string read();
-    
-    
+
+
 private:
     int parseConfig(cfgproc ttyConfig);
-    SerialStream serial_stream ;
+    SerialPort serial_port ;
 };
 
 
