@@ -88,7 +88,7 @@ string ELM327::ELMReadLine()
 {
     string rt;
     rt = tty.read();
-    cout<<"GREEN"<<endl;
+    //cout<<"Reading: "<<std::hex<<rt<<endl;
     return rt;
 }
 

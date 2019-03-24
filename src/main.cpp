@@ -17,14 +17,11 @@ int main(int argc, char *argv[])
     //loades config from tty.conf file
     cfgproc cfg;
     ELM327 elm(cfg);
-
+    elm.connectECM();
 
     PID ReadPID;
     ELM327OBD elmobd(elm);
     elmobd.setMode(1);
-
-    //Scan all PIDs
-    cout<<"PID,OPDATA,Reported Nib,Reported Bit,Status"<<endl;
 
     std::string reportedPIDs = "";
     std::string nib = "";
@@ -36,13 +33,19 @@ int main(int argc, char *argv[])
     uint8_t byte = 0;
     uint8_t bit = 0;
 
+    std::string elm_version=elm.getELMVersion();
+    cout<<"ELM VERSION: "<<elm_version<<endl;
 
-for(int i=0; i!= 0xFF; i++)
-{
-  cout<<"For: "<<i<<endl;
-  ReadPID = elmobd.getPID(i);
-  cout<<elmobd.getPID(i).getRawPidVaule()<<endl;
-}
+    //Scan all PIDs
+    cout<<"PID,OPDATA,Reported Nib,Reported Bit,Status"<<endl;
+
+    for(int i=0; i!= 0xFF; i++)
+    {
+      cout<<"For: "<<i<<endl;
+      ReadPID = elmobd.getPID(i);
+      cout<<elmobd.getPID(i).getRawPidVaule()<<endl;
+    }
+
 /*
 //*********PIDs 0>32***********************************************************
     for(int i = 0; i <= 0x60; i++)
