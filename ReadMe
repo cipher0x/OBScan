@@ -2,7 +2,11 @@ OBScan is a PID scan utility that is compatible with any
 OBDII scan tool based on the ELM327 IC. This utility scans
 all PID’s on a vehicles ECM to allow the user to locate non
 documented PID’s.
+------------------------------------------------------------
 
+This Software was tested using ELM327 v1.4b
+Minor adjustments to ttyCom.h/cpp and to ELM327.cpp may be needed
+for different ELM327 versions.
 
 ------------------------------------------------------------
 Requirements:
@@ -12,9 +16,10 @@ On Debian run: sudo apt-get install build-essential
 libboost
 On Debian run: sudo apt-get install libboost-all-dev
 
-libserial version 0.6.0rc2 or newer
-http://libserial.sourceforge.net/
-On Debian run: sudo apt-get install libserial-dev
+libserial v1.0.0
+https://github.com/crayzeewulf/libserial
+Tested using:
+git commit 2a28293cc8712a15aab2fa478f51f467e650cee
 
 ------------------------------------------------------------
 
